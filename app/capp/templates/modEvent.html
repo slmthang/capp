@@ -1,0 +1,23 @@
+{% extends "boilerplate.html" %}
+{% block main %}
+
+<form id="addEvent-form" class="flex eventz" method="post">
+    <div><h1>Modify Event</h1></div>
+    <div><input type="text" value="{{event['eventName']}}" name="eventName" id="eventName" required></div>
+    <div>
+        <label>From:</label><br>
+        <input type="datetime-local" value="{{event['startTime']}}" name="sdate" id="sdate" required>
+    </div>
+    <div>
+        <label>To:</label><br>
+        <input type="datetime-local" value="{{event['endTime']}}" name="edate" id="edate" required>
+    </div>
+    <div><input type="text" value="{{event['location']}}" name="location" id="location"></div>
+    
+    <div><input type="text" value="{{event['description']}}" name="description" id="description"></div>
+
+    <div><input type="submit" value="Update"></div>
+    
+</form>
+
+{% endblock %}

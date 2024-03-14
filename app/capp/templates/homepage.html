@@ -1,0 +1,105 @@
+{% extends "boilerplate.html" %}
+{% block main %} 
+
+    <div  id="mini-header-calendar" class="flex">
+        <nav id="calendarView" class="flex" >
+            <ul class="flex">
+                <li><button>Day</button></li>
+                <li><button>Week</button></li>
+                <li><button style="background-color: rgb(6, 172, 6);">Month</button></li>
+            </ul>
+        </nav>
+    
+        <div id="currentDate" class="flex">
+            
+            <button onclick="window.location='/2'"><</button>
+            <h2>&nbsp{{data['monthName']}},&nbsp</h2>
+            <h2>{{data['year']}}&nbsp</h2>
+            <button  onclick="window.location='/1'">></button>
+            
+        </div>
+    
+        <nav id="calendarType">
+            <ul class="flex">
+                <li><button style="background-color: rgb(6, 172, 6);">Personal</button></li>
+                <li><button onclick="onB()">Group</button></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div id="calendar">
+        <div class="calendarGrid headerBlock flex">Sunday</div>
+        <div class="calendarGrid headerBlock flex">Monday</div>
+        <div class="calendarGrid headerBlock flex">Tuesday</div>
+        <div class="calendarGrid headerBlock flex">Wednesday</div>
+        <div class="calendarGrid headerBlock flex">Thursday</div>
+        <div class="calendarGrid headerBlock flex">Friday</div>
+        <div class="calendarGrid headerBlock flex">Saturday</div>
+        {% block calendarDays %}
+            {% for x in range(data['startDay']) %}
+            <div class="calendarGrid emptyBlock flex"></div>
+            {% endfor %}
+            {% for x in range(data['cBuild']['mb']) %}
+                {% if (x+data['startDay'])%7==0 or (x+data['startDay'])%7==6 %}
+                    {% if data['currentYear']==data['year'] and data['currentMonth']==data['month'] and x == data['currentDay'] - 1 %}
+                        {% if events[[data['year'], data['month'], x + 1]|join("")] %}
+                            <div class="calendarGrid currentDay flex" id="{{data['year']}}-{{data['month']}}-{{x+1}}" onclick="dayClicked(this)">
+                                <div class="mini-grid flex fe"><div class="indicator"></div></div>
+                                <div class="mini-grid flex">{{x + 1}}</div>
+                                <div class="mini-grid"></div>
+                            </div>
+                        {% else %}
+                            <div class="calendarGrid currentDay flex" id="{{data['year']}}-{{data['month']}}-{{x+1}}" onclick="dayClicked(this)">{{x + 1}}</div>
+                        {% endif %}
+                        
+                    {% else %} 
+                        
+                        {% if events[[data['year'], data['month'], x + 1]|join("")] %}
+                            <div class="calendarGrid weekendBlock flex" id="{{data['year']}}-{{data['month']}}-{{x+1}}" onclick="dayClicked(this)">
+                                <div class="mini-grid flex fe"><div class="indicator"></div></div>
+                                <div class="mini-grid flex">{{x + 1}}</div>
+                                <div class="mini-grid"></div>
+                            </div>
+                        {% else %}
+                            <div class="calendarGrid weekendBlock flex" id="{{data['year']}}-{{data['month']}}-{{x+1}}" onclick="dayClicked(this)">{{x + 1}}</div>
+                        {% endif %}
+                    {% endif %}
+                
+                {% else %}
+                    
+                    {% if data['currentYear']==data['year'] and data['currentMonth']==data['month'] and x == data['currentDay'] - 1 %}
+                        {% if events[[data['year'], data['month'], x + 1]|join("")] %}
+                            <div class="calendarGrid currentDay flex" id="{{data['year']}}-{{data['month']}}-{{x+1}}" onclick="dayClicked(this)">
+                                <div class="mini-grid flex fe"><div class="indicator"></div></div>
+                                <div class="mini-grid flex">{{x + 1}}</div>
+                                <div class="mini-grid"></div>
+                            </div>
+                        {% else %}
+                            <div class="calendarGrid currentDay flex" id="{{data['year']}}-{{data['month']}}-{{x+1}}" onclick="dayClicked(this)">{{x + 1}}</div>
+                        {% endif %}
+                        
+                    {% else %} 
+                        {% if events[[data['year'], data['month'], x + 1]|join("")] %}
+                            <div class="calendarGrid dayBlock flex" id="{{data['year']}}-{{data['month']}}-{{x+1}}" onclick="dayClicked(this)">
+                                <div class="mini-grid flex fe"><div class="indicator"></div></div>
+                                <div class="mini-grid flex">{{x + 1}}</div>
+                                <div class="mini-grid"></div>
+                            </div>
+                        {% else %}
+                            <div class="calendarGrid dayBlock flex" id="{{data['year']}}-{{data['month']}}-{{x+1}}" onclick="dayClicked(this)">{{x + 1}}</div>
+                        {% endif %}
+                        
+                    {% endif %}
+                
+                {% endif %}
+            
+            {% endfor %}
+            {% for x in range(data['cBuild']['eb']) %}
+            <div class="calendarGrid emptyBlock flex"></div>
+            {% endfor %}
+        {% endblock %}
+    </div>
+
+
+<div id="addEventButton"><img src="../static/images/icons/add-button.svg" alt="add button" width="60px" height="60px" onclick="window.location='/cevent'"></div>
+{% endblock %}

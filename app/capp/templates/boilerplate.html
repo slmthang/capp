@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/default.css">
+    <link rel="stylesheet" href="../static/css/homepage.css">
+    <link rel="stylesheet" href="../static/css/help.css">
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <link rel="stylesheet" href="../static/css/events.css">
+    <link rel="stylesheet" href="../static/css/displayEvents.css">
+    <link rel="stylesheet" href="../static/css/viewEvent.css">
+    <script src="../static/scripts/actions.js" defer></script>
+    <title>{% block title %}Homepage{% endblock %}</title>
+</head>
+<body>
+    <div>
+        <!-- navs -->
+        <nav id="navs" class="flex">
+            <div id="app-icon" class="flex"><a href="/"><img src="../static/images/app-icon.svg" alt="app icon" width="100px" height="100px"></a><p>CAPP</p> </div>
+            <ul id="menu">
+                <li class="flex"><a href="/"><div class="flex"><img src="../static/images/icons/home.svg" alt="home icon" width="40px" height="40px"><p>Home</p></div></a></li>
+                <li class="flex"><a href="/profile"><div class="flex"><img src="../static/images/icons/profile.svg" alt="profile icon" width="40px" height="40px"><p>Profile</p></div></a></li>
+                <li class="flex"><a href="/groups"><div class="flex"><img src="../static/images/icons/groups.svg" alt="groups icon" width="40px" height="40px"><p>Groups</p></div></a></li>
+                <li class="flex"><a href="/help"><div class="flex"><img src="../static/images/icons/help.svg" alt="help icon" width="40px" height="40px"><p>Help</p></div></a></li>
+                <li class="flex"><a href="/settings"><div class="flex"><img src="../static/images/icons/settings.svg" alt="settings icon" width="40px" height="40px"><p>Settings</p></div></a></li>
+                <li class="flex"><a href="/auth/logout"><div class="flex"><img src="../static/images/icons/logout.svg" alt="logout icon" width="40px" height="40px"><p>Logout</p></div></a></li>
+            </ul>
+        </nav>
+        
+        <!-- main content -->
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <!-- footer -->
+        <footer class="flex"><div>&copy;Syntax Error</div></footer>
+    </div>
+        
+</body>
+</html>

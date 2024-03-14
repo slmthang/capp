@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/login.css">
+    <title>Log In</title>
+</head>
+<body class="flex">
+    <main>
+
+        <div id="login-form">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flashes flex" style="flex-direction: column; background-color: white;" id="e-message-container">
+                        {% for category, message in messages %}
+                            {% if category == "e-message" %}
+                                <div class="e-message" class="flex">
+                                    <p>{{message}}</p>
+                                </div>
+                            {% endif %}
+                            {% if category == "s-message" %}
+                                <div class="s-message" class="flex">
+                                    <p>{{message}}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <h1>Sign Up</h1>
+
+            <form method="POST">
+                <div class="input-div">
+                    <input type="text" id="username" name="username" placeholder="Username" required minlength="3">
+                </div>
+                <div class="input-div">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-div">
+                    <input type="password" id="password" name="password" placeholder="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Password requires minimum 8 characters that contains at least one uppercase, lowercase, and a number">
+                </div>
+                <div class="input-div">
+                    <input type="date" id="dob" name="dob" placeholder="DOB : YYYY-MM-DD" required>
+                </div>
+                <div class="input-div">
+                    <select type="text" id="gender" name="gender" placeholder="Gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+        
+                <div id="login"> 
+                    <input type="submit" value="Sign Up">
+                </div>
+        
+            </form>
+
+        </div>  
+    </main>
+
+    <!-- footer -->
+    <footer class="flex"><div>&copy;Syntax Error</div></footer>
+</body>
+</html>

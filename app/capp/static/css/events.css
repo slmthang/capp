@@ -1,0 +1,34 @@
+
+
+#addEvent-form {
+    flex-direction: column;
+}
+
+.eventz input[type="text"], 
+.eventz input[type="date"],
+.eventz input[type="datetime-local"]{
+    font-size: medium;
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#addEvent-form input[type="submit"] {
+    background-color: #74c947;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+#addEvent-form input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+#addEvent-form > div {
+
+    margin: 15px 0px 15px 0px;
+}

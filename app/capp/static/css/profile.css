@@ -1,0 +1,71 @@
+
+#profile {
+    flex-direction: column;
+    width: 1000px;
+    height: 700px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#profile-pic {
+    margin-bottom: 50px;
+}
+
+#profile-pic form {
+    flex-direction: column;
+}
+
+#profile-pic img {
+    margin-bottom: 10px;
+}
+
+#profile-pic form input[type="submit"] {
+    width: 100px;
+    height: 30px;
+    border: 0.5px solid lightgreen;
+    border-radius: 5px;
+    background-color: var(--bgColor1);
+}
+
+#profile-pic form input[type="submit"]:hover {
+    background-color: var(--buttonH1);
+    cursor: pointer;
+}
+
+.profile-field {
+    width: 600px;
+    height: 100px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.profile-field input {
+    width: 500px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+#profile-info input[type="submit"] {
+    width: 150px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
+}
+
+#profile-info input[type="submit"]:hover {
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+#profile-info input[value="Save Changes"] {
+    background-color: var(--mainColor1);
+    margin-right: 40px;
+}
+
+#profile-info input[value="Cancel"] {
+    background-color: red;
+}

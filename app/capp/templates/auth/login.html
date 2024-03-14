@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/login.css">
+    <script src="../../static/scripts/actions.js" defer></script>
+    <title>Log In</title>
+</head>
+<body class="flex">
+    <main>
+        <div id="description">
+            <h1>App Name</h1>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper sit amet erat nec rutrum. Etiam ut sem varius, laoreet magna eu, gravida augue. Nunc sit amet vehicula metus.</h4>
+        </div>
+
+        <div id="login-form">
+
+            <h1>Log In</h1>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flashes flex" style="flex-direction: column; background-color: white;" id="e-message-container">
+                        {% for category, message in messages %}
+                            {% if category == "e-message" %}
+                                <div class="e-message" class="flex">
+                                    <p>{{message}}</p>
+                                </div>
+                            {% endif %}
+                            {% if category == "s-message" %}
+                                <div class="s-message" class="flex">
+                                    <p>{{message}}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST">
+                <div class="input-div">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-div">
+                    <input type="password" id="password" name="password" placeholder="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Password requires minimum 8 characters that contains at least one uppercase, lowercase, and a number">
+                </div>
+        
+                <input type="checkbox" id="show-password" onclick="showPassword()">
+                <label for="show-password" style="font-size: small;">Show Password</label>
+
+                <div id="login" style="margin-top: 20px;">  
+                    <input type="submit" value="Log In">
+                </div>
+        
+            </form>
+        
+            <hr>
+
+            <a href="/auth/signup" style="text-decoration:none;">
+                <button id="signup-button">Sign Up</button>
+            </a>
+            <a href="/auth/rp/sc" style="text-decoration:none;">
+                <button id="changePW-button">Forgot Password</button>
+            </a>
+        </div>  
+    </main>
+
+    <!-- footer -->
+    <footer class="flex"><div>&copy;Syntax Error</div></footer>
+</body>
+</html>

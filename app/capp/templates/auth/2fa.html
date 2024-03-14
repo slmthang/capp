@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/login.css">
+    <script src="../../static/scripts/actions.js"></script>
+    <title>Log In</title>
+</head>
+<body class="flex">
+    <main>
+        <div id="description">
+            <h1>App Name</h1>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper sit amet erat nec rutrum. Etiam ut sem varius, laoreet magna eu, gravida augue. Nunc sit amet vehicula metus.</h4>
+        </div>
+
+        <div id="login-form">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flashes flex" style="flex-direction: column; background-color: white;" id="e-message-container">
+                        {% for category, message in messages %}
+                            {% if category == "e-message" %}
+                                <div class="e-message" class="flex">
+                                    <p>{{message}}</p>
+                                </div>
+                            {% endif %}
+                            {% if category == "s-message" %}
+                                <div class="s-message" class="flex">
+                                    <p>{{message}}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <div>
+                <h1>Verification Code sent to the email!</h1>
+                <h2>Enter the code below.</h2> <br> <br>
+            </div>
+            <form method="POST">
+                <div class="input-div">
+                    <input type="text" id="vcode" name="vcode" placeholder="Verification Code" required>
+                </div>
+        
+                <div id="login"> 
+                    <input type="submit" value="Confirm">
+                </div>
+        
+            </form>
+
+        </div>  
+    </main>
+
+    <!-- footer -->
+    <footer class="flex"><div>&copy;Syntax Error</div></footer>
+</body>
+</html>

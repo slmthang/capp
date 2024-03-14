@@ -1,0 +1,38 @@
+
+-- CREATE USER 'capp'@'%' IDENTIFIED BY 'red781';
+-- GRANT ALL PRIVILEGES ON *.* TO 'capp'@'%' WITH GRANT OPTION;
+-- FLUSH PRIVILEGES;
+
+DROP DATABASE IF EXISTS capp;
+
+CREATE DATABASE capp;
+
+USE capp;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS events;
+
+CREATE TABLE users (
+  user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(100) UNIQUE NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(500) NOT NULL,
+  dob DATE,
+  gender VARCHAR(100)
+);
+
+
+
+CREATE TABLE events (
+  event_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) UNIQUE NOT NULL,
+  owner INTEGER UNIQUE NOT NULL,
+  start_time DATETIME NOT NULL,
+  end_time DATETIME NOT NULL,
+  location VARCHAR(100),
+  description VARCHAR(100),
+  creation_date DATE NOT NULL,
+  FOREIGN KEY (owner) REFERENCES users (user_id)
+);
+
+INSERT INTO users VALUES( 0, "slm", "slmthang99@gmail.com", "password1", "2011-01-01", "male");

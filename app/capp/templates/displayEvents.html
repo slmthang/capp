@@ -1,0 +1,19 @@
+{% extends "boilerplate.html" %}
+{% block main %}
+
+
+<div id="events-display" class="flex eventz">
+    <h1 style="margin: 2px 0 5px 0;">{{date}}</h1>
+
+    <div id="events">
+        {% for k,v in eventDict.items() %}
+        <div class="event flex" id="{{k}}date{{date}}" onclick="eventClicked(this)">
+                <div class="eventName flex">{{v['eventName']}}</div>
+                <div class="eventTime flex">{{v['startTime']}} - {{v['endTime']}}</div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

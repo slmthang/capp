@@ -1,0 +1,117 @@
+
+
+/************************************************************ CSS VARIABLES ************************************************************/
+
+:root {
+    --mainColor1 : #74C947;
+    --mainColor1Light : hsla(99, 55%, 53%, .5);
+    --mainColor2 : #06AC06;
+    --bgColor1 : #f5f5f7;
+    --bgColor2 : #F5F5F5;
+    --buttonH1 : lightgreen;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+body > div {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto 200px;
+    grid-template-areas:
+        "navs main"
+        "footer footer";
+}
+
+
+#navs {
+    position: relative;
+    grid-area: navs;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    background-color: var(--bgColor2);
+}
+
+#app-icon {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 1.2em;
+}
+
+#app-icon:hover {
+    cursor: pointer;
+}
+
+#menu {
+    position: absolute;
+    top: 180px;
+    left: 30px;
+}
+
+#menu li {
+    list-style: none;
+    text-decoration: none;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: black;
+}
+
+#menu li:hover {
+    background: hsla(99, 55%, 53%, .5);
+    cursor: pointer;
+}
+
+#menu div {
+    width: 100px;
+    height: 60px;
+    justify-content: flex-start;
+}
+
+#menu li p {
+    margin-left: 20px;
+}
+
+
+/* main */
+main {
+    background: linear-gradient(to top right, rgb(165, 165, 165), lightgreen);
+}
+
+
+/* Footer */
+footer {
+    grid-area: footer;
+    font-size: 2em;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    background-color: var(--bgColor2);
+}

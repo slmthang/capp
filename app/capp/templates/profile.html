@@ -1,0 +1,42 @@
+{% extends "boilerplate.html" %}
+{% block main %}
+
+<div id="profile" class="flex">
+    <div id="profile-pic">
+        <form method="post" class="flex">
+            <img src="../static/images/avatars/avatar2.svg" alt="profile picture" width="100px" height="100px">
+            <input type="submit" value="Change">
+        </form>
+    </div>
+    <div id="profile-info">
+        <form method="post">
+            <div class="profile-field flex">
+                <label for="username">Username:</label>
+                {% if username %}
+                <input type="text" id="username" name="username" value="{{username}}"> 
+                {% endif %}
+                
+            </div>
+            <div class="profile-field flex">
+                <label for="email">Email:</label>
+                {% if email %}
+                <input type="text" id="email" name="email" value={{email}}>
+                {% endif %}
+                
+            </div>
+            <div class="profile-field flex">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" {% block country %}value="United States"{% endblock%}>
+            </div>
+            <div class="profile-field flex">
+                <label for="timezone">Time-Zone:</label>
+                <input type="text" id="timezone" name="timezone" {% block timezone %}value="ET- US & Canada"{% endblock%}>
+            </div>
+            
+            <input type="submit" value="Save Changes">
+            <input type="submit" value="Cancel">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

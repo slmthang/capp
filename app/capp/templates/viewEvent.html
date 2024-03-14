@@ -1,0 +1,29 @@
+{% extends "boilerplate.html" %}
+{% block main %}
+
+<div class="eventz">
+    <div id="eventView-ve">
+        <div id="eventHeader-ve" class="flex">
+            <div id="edit-ve" class="flex">
+                <img src="../static/images/icons/edit.svg" alt="edit icon" width="20px" height="30px" id="{{eid}}" onclick="modEvent(this)">
+            </div>
+            <div id="delete-ve" class="flex">
+                <img src="../static/images/icons/trash.svg" alt="delete icon" width="20px" height="30px" id="{{eid}}" onclick="delEvent(this)">
+            </div>
+        </div>
+        <div id="eventDetails-ve">
+            <div id="eventName-ve" class="flex">{{event['eventName']}}</div>
+            <div id="eventTime-ve" class="flex">{{event['startTime']}} - {{event['endTime']}} {{date}}</div>
+            {% if (event['location']) %}
+                <div id="eventLocation-ve" class="flex">Location: {{event['location']}}</div>
+            {% endif %}
+            {% if (event['description']) %}
+                <div id="eventDescription-ve" class="flex">Description: {{event['description']}}</div>
+            {% endif %}
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
