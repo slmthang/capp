@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+
+  capp:
+    build: ./app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+    environment:
+      EMAIL: capp.supp2022@gmail.com
+      EMAIL_PASS: gbmvlzxviioohyer
+
+      MYSQL_USER: root
+      MYSQL_PASS: red781
+
+      MONGO_USER: root
+      MONGO_PASS: red781
+    
+  mysql:
+    build: ./mysql
+    restart: always
+    ports:
+      - "4000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: red781
